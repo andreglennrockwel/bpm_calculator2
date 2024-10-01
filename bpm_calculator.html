@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+  <meta charset="UTF-8">\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <title>BPM to Milliseconds Calculator</title>\
+  <style>\
+    body \{\
+      font-family: Arial, sans-serif;\
+      margin: 40px;\
+      background-color: #f4f4f4;\
+    \}\
+    h1, h2 \{\
+      color: #333;\
+    \}\
+    input, button \{\
+      padding: 10px;\
+      font-size: 16px;\
+      margin: 10px 0;\
+    \}\
+    ul \{\
+      list-style-type: none;\
+      padding: 0;\
+    \}\
+    li \{\
+      background-color: #fff;\
+      margin: 5px 0;\
+      padding: 10px;\
+      border: 1px solid #ddd;\
+      border-radius: 5px;\
+    \}\
+    button \{\
+      background-color: #28a745;\
+      color: white;\
+      border: none;\
+      cursor: pointer;\
+    \}\
+    button:hover \{\
+      background-color: #218838;\
+    \}\
+  </style>\
+</head>\
+<body>\
+  <h1>BPM to Milliseconds</h1>\
+  \
+  <label for="bpm">Enter BPM:</label>\
+  <input type="number" id="bpm" placeholder="e.g., 120" />\
+  <button onclick="calculateTimes()">Calculate</button>\
+\
+  <h2>Results:</h2>\
+  <ul id="results">\
+    <!-- Times will be displayed here -->\
+  </ul>\
+\
+  <script>\
+    function calculateTimes() \{\
+      const bpm = document.getElementById('bpm').value;\
+      if (bpm && bpm > 0) \{\
+        const msPerBeat = 60000 / bpm;\
+        \
+        const results = `\
+          <li>Whole note: $\{msPerBeat * 2\} ms</li>\
+          <li>Dotted Whole note: $\{(msPerBeat * 2) * 1.5\} ms</li>\
+          <li>Whole note triplet: $\{(msPerBeat * 2) / 1.5\} ms</li>\
+\
+          <li>Half note: $\{msPerBeat\} ms</li>\
+          <li>Dotted Half note: $\{msPerBeat * 1.5\} ms</li>\
+          <li>Half note triplet: $\{msPerBeat / 1.5\} ms</li>\
+\
+          <li>Quarter note: $\{msPerBeat / 2\} ms</li>\
+          <li>Dotted Quarter note: $\{(msPerBeat / 2) * 1.5\} ms</li>\
+          <li>Quarter note triplet: $\{(msPerBeat / 2) / 1.5\} ms</li>\
+\
+          <li>Eighth note: $\{msPerBeat / 4\} ms</li>\
+          <li>Dotted Eighth note: $\{(msPerBeat / 4) * 1.5\} ms</li>\
+          <li>Eighth note triplet: $\{(msPerBeat / 4) / 1.5\} ms</li>\
+\
+          <li>Sixteenth note: $\{msPerBeat / 8\} ms</li>\
+          <li>Dotted Sixteenth note: $\{(msPerBeat / 8) * 1.5\} ms</li>\
+          <li>Sixteenth note triplet: $\{(msPerBeat / 8) / 1.5\} ms</li>\
+\
+          <li>Thirty-second note: $\{msPerBeat / 16\} ms</li>\
+          <li>Dotted Thirty-second note: $\{(msPerBeat / 16) * 1.5\} ms</li>\
+          <li>Thirty-second note triplet: $\{(msPerBeat / 16) / 1.5\} ms</li>\
+\
+          <li>Sixty-fourth note: $\{msPerBeat / 32\} ms</li>\
+          <li>Dotted Sixty-fourth note: $\{(msPerBeat / 32) * 1.5\} ms</li>\
+          <li>Sixty-fourth note triplet: $\{(msPerBeat / 32) / 1.5\} ms</li>\
+\
+          <li>One hundred twenty-eighth note: $\{msPerBeat / 64\} ms</li>\
+          <li>Dotted One hundred twenty-eighth note: $\{(msPerBeat / 64) * 1.5\} ms</li>\
+          <li>One hundred twenty-eighth note triplet: $\{(msPerBeat / 64) / 1.5\} ms</li>\
+\
+          <li>Two hundred fifty-sixth note: $\{msPerBeat / 128\} ms</li>\
+          <li>Dotted Two hundred fifty-sixth note: $\{(msPerBeat / 128) * 1.5\} ms</li>\
+          <li>Two hundred fifty-sixth note triplet: $\{(msPerBeat / 128) / 1.5\} ms</li>\
+        `;\
+        \
+        document.getElementById('results').innerHTML = results;\
+      \} else \{\
+        document.getElementById('results').innerHTML = '<li>Please enter a valid BPM</li>';\
+      \}\
+    \}\
+  </script>\
+</body>\
+</html>\
+}
